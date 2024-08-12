@@ -23,6 +23,7 @@ import { authFormSchema } from '@/lib/utils';
 import { Loader2 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { signIn, signUp } from '@/lib/actions/user.actions';
+import PlaidLink from './PlaidLink';
 
 const formSchema = z.object({
     email: z.string().email(),
@@ -117,9 +118,9 @@ const AuthForm = ({ type }: { type: string }) => {
               </h1>
             </div>
        </header>
-       {user ? (
+      {user ? (
          <div className="flex flex-col gap-4">
-            {/* PlaidLink */}
+            <PlaidLink user={user} variant="primary" />
          </div>
        ): (
         <>
